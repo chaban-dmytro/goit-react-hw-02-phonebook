@@ -26,6 +26,7 @@ export class App extends Component {
   };
 
   onFilterInputChange = event => {
+    console.log(this.state.contacts);
     this.setState({ filter: event.target.value });
   };
 
@@ -48,7 +49,10 @@ export class App extends Component {
         <h1>Phonedook</h1>
         <AddContact onAddNewContact={this.onAddNewContact}></AddContact>
         <h2>Contacts</h2>
-        <Filter onFilterInputChange={this.onFilterInputChange}></Filter>
+        <Filter
+          onFilterInputChange={this.onFilterInputChange}
+          array={this.state.contacts}
+        ></Filter>
         <ContactList
           array={this.getFilterContacts()}
           onDeleteContact={this.onDeleteContact}
